@@ -39,9 +39,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/nuxt-swiper.js', ssr: false },
-    { src: '~/plugins/vue-localstorage.js', ssr: false },
-    // { src: '~/plugins/vuelidate.js', ssr: true },
+
   ],
 
   /*
@@ -50,9 +48,14 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/dotenv',
-    // '@nuxtjs/axios',
-    ['nuxt-sass-resources-loader', '~/assets/css/variables.scss']
+    ['@nuxtjs/style-resources'],
   ],
+
+  styleResources: {
+    scss: [
+      '@/assets/css/variables.scss',
+    ]
+  },
   /*
   ** Axios module configuration
   */

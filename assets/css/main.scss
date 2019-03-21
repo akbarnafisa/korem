@@ -14,7 +14,7 @@ html,
 body {
   font-family: $family-primary;
   font-size: $font-size;
-  background-color: $lightgrey;
+  background-color: $white;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -90,6 +90,11 @@ body {
   width: initial;
 }
 
+.section-title {
+  border-bottom: 1px solid rgba(0,0,0,.25);
+  padding-bottom: 8px;
+}
+
 ::placeholder {
   line-height: 1.5;
   opacity: 0.75;
@@ -153,14 +158,14 @@ body {
   padding-bottom: 48px;
 
   @include media(sm) {
-    padding-top: 96px;
+    padding-top: 128px;
     padding-bottom: 80px;
   }
 
-  // @include media(md) {
-  //   padding-top: 96px;
-  //   padding-bottom: 96px;
-  // }
+  @include media(md) {
+    padding-top: 144px;
+    padding-bottom: 96px;
+  }
 }
 
 .section-white {

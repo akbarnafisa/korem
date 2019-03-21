@@ -1,8 +1,8 @@
-const extractImage = (images) => {
+const extractImage = (images, type) => {
   let result = {}
   Object.keys(images).map((key) => {
     const data = JSON.parse(images[key])
-    if (data.length === 1) {
+    if (data.length === 1 || type === 'single') {
       result = {
         ...result,
         [key]: data[0].url
