@@ -2,15 +2,22 @@
   <div>
     <the-nav />
     <nuxt />
-
+    <the-footer />
   </div>
 </template>
 
 <script>
 import TheNav from '@/components/Nav/TheNav'
+import TheFooter from '@/components/Nav/TheFooter'
 export default {
   components: {
-    TheNav
+    TheNav,
+    TheFooter
+  },
+  created () {
+    if (this.$store.state.profil.list === null) {
+      this.$store.dispatch("profil/FETCH_DATA");
+    }
   }
 }
 </script>

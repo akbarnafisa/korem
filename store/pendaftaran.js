@@ -26,9 +26,9 @@ export const mutations = {
 };
 
 export const actions = {
-  FETCH_NEWS ({ commit }) {
+  FETCH_DATA ({ commit }) {
     return new Promise((resolve, reject) => {
-      ContentService.get('berita')
+      ContentService.get('pendaftaranTNI')
         .then(res => {
           let kv = {}
           const data = res.data.data.map((v, index) => {
@@ -71,7 +71,7 @@ export const actions = {
 };
 
 export const getters = {
-  GET_NEWS (state) {
+  GET_DATA (state) {
     return (link) => {
       const key = state.keyList[link]
       return state.list[key]

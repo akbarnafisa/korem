@@ -12,22 +12,18 @@
       </nuxt-link>
       <div class="nav-right  ">
         <no-ssr>
-          <nuxt-link
-            exact
-            :to="'/profil'"
-          >
+          <div class="nav-items">
+            Profil
             <div class="dropdown">
-              <nuxt-link :to="'/berita'">
-                Visi Misi
-              </nuxt-link>
-              <nuxt-link :to="'/berita'">
-                Sejarah
-              </nuxt-link>
-              <nuxt-link :to="'/berita'">
-                Pejabat
+              <nuxt-link
+                v-for="data in nav"
+                :key="data.link"
+                :to="`/profil/${data.link}`"
+              >
+                {{data.name}}
               </nuxt-link>
             </div>
-          </nuxt-link>
+          </div>
         </no-ssr>
         <nuxt-link :to="'/berita'">
           Berita
@@ -48,7 +44,11 @@
 
 <script>
 export default {
-
+  computed: {
+    nav () {
+      return this.$store.state.profil.nav || []
+    }
+  }
 }
 </script>
 
@@ -81,7 +81,8 @@ nav {
       width: 100%;
       display: flex;
       justify-content: flex-end;
-      a {
+      a,
+      .nav-items {
         color: $black60;
         font-weight: 700;
         margin-left: 32px;

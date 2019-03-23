@@ -9,13 +9,13 @@
     >
       <div class="card__image-wrapper">
         <div
-          :style="`backgroundImage: url('${article.thumbnail}')`"
+          :style="`backgroundImage: url('${article.gambar}')`"
           class="card__image"
         />
       </div>
       <p class="card__title mt-4 fw-500">{{ article.judul }}</p>
       <h6 class="card__date fw-700">{{article.date}}</h6>
-      <p class="card__desc">{{article.konten.slice(0,100)}}...</p>
+      <p class="card__desc">{{article.desc.slice(0,100)}}...</p>
       <!-- <nuxt-link :to="article.link" class="mt-6">
         <BaseButton text="View More" type="small"/>
       </nuxt-link>-->
@@ -37,62 +37,9 @@
 // console.log(event.toLocaleDateString('id-ID', options));
 export default {
   props: {
-    // articles: { type: Array, required: true }
-
+    articles: { type: Array, required: true }
   },
-  data () {
-    return {
-      articles: [{
-        date: 'Minggu, 17 Maret 2019',
-        link: 'wew1',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
 
-      },
-      {
-        date: 'Minggu, 17 Maret 2019',
-        link: 'wew2',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
-
-      },
-      {
-        date: 'Minggu, 17 Maret 2019',
-        link: 'wew3',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
-
-      },
-      {
-        date: 'Minggu, 17 Maret 2019',
-        link: 'wew4',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
-
-      },
-      {
-        date: 'Minggu, 17 Maret 2019',
-        link: 'wew5',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
-
-      },
-      {
-        date: new Date(),
-        link: 'wew5',
-        thumbnail: 'https://korem101antasari.mil.id/media/2019/02/WhatsApp-Image-2019-02-12-at-14.48.58-770x430.jpeg',
-        judul: 'Pembukaan apel Dansat Tersebar Kodam Vl/Mulawarman TA 2019',
-        konten: 'Banjarmasin. Guna mengantisipasi kerugian personel maupun materiil yang disebabkan Laka Lalin, Korem 101/Antasari bersama Den Pom Banjarmasin melaksanakan pemeriksaan kendaraan dinas baik roda dua maupun roda empat, bertempat di lapangan apel Makorem 101/Antasari. Kasi Intel Korem 101/Antasari yang memimpin pelaksanaan pemeriksaan kendaraan tersebut menyampaikan bahwa’ Pemeriksaan kendaraan anggota Korem secara rutin dilaksanakan setiap triwulan, pemeriksaan',
-
-      }
-      ]
-    }
-  },
   computed: {
     articlesPage () {
       const routeName = this.$route.name

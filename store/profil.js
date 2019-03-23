@@ -9,6 +9,7 @@ import striptags from 'striptags'
 export const state = () => ({
   list: null,
   keyList: {},
+  nav: null,
   page: null,
 
 });
@@ -22,19 +23,24 @@ export const mutations = {
   },
   SET_KEY_LIST (state, payload) {
     state.keyList = payload;
+  },
+  SET_NAV (state, payload) {
+    state.nav = payload;
   }
 };
 
 export const actions = {
-  FETCH_NEWS ({ commit }) {
+  FETCH_DATA ({ commit }) {
     return new Promise((resolve, reject) => {
-      ContentService.get('berita')
+      ContentService.get('profil')
         .then(res => {
           let kv = {}
+          const nav = []
           const data = res.data.data.map((v, index) => {
             const images = {
               gambar: v.gambar,
             };
+
             const nextData = Array(3).fill(1)
               .map((v, i) => (i + index + 1) % res.data.data.length);
             const image = extractImage(images, 'single');
@@ -45,6 +51,10 @@ export const actions = {
             const link = v.judul.toLowerCase()
               .replace(/[^\w ]+/g, '')
               .replace(/ +/g, '-');
+            nav.push({
+              name: v.judul,
+              link
+            })
             kv = {
               ...kv,
               [link]: index
@@ -60,6 +70,7 @@ export const actions = {
           })
           commit('SET_KEY_LIST', kv)
           commit('SET_LISTS', data)
+          commit('SET_NAV', nav)
           resolve(data)
         })
         .catch((err) => {
@@ -71,7 +82,7 @@ export const actions = {
 };
 
 export const getters = {
-  GET_NEWS (state) {
+  GET_DATA (state) {
     return (link) => {
       const key = state.keyList[link]
       return state.list[key]

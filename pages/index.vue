@@ -6,7 +6,7 @@
         <h3 class="section-title fw-700 h2-sm">
           Berita Terbaru
         </h3>
-        <news-list />
+        <news-list :articles="articles" />
       </section>
 
       <section class="section">
@@ -35,6 +35,10 @@ export default {
       await store.dispatch("home/FETCH_PAGE");
     }
 
+    if (store.state.news.list === null) {
+      await store.dispatch("news/FETCH_NEWS");
+    }
+
     if (store.state.gallery.gallery === null) {
       await store.dispatch("gallery/FETCH_DATA");
     }
@@ -45,6 +49,9 @@ export default {
     },
     images () {
       return this.$store.state.gallery.gallery
+    },
+    articles () {
+      return this.$store.state.news.list
     }
   }
 }
