@@ -1,5 +1,5 @@
 <template>
-  <div class="container mw-4 section">
+  <div class="container mw-4 section section__headers">
     <h4 class="text-title h3-sm h2-md mt-5">{{article.judul}}</h4>
     <p class="pt-1 text-grey text-pre-wrap">{{article.date}}</p>
     <div class="py-4">

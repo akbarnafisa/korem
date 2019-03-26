@@ -1,6 +1,6 @@
 <template>
-  <div class="container mw-4 section">
-    <h4 class="text-center text-title h3-sm h2-md mt-5 text-center">{{article.judul}}</h4>
+  <div class="container mw-4 section-header">
+    <h4 class="text-center text-title h3-sm h2-md text-center">{{article.judul}}</h4>
     <p class="text-center pt-1 text-grey text-pre-wrap text-center">{{article.date}}</p>
     <div class="text-center py-4">
       <img

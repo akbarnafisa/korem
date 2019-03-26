@@ -3,7 +3,7 @@
     <div class="nav-mobile" :class="{active: mobileNavActive}">
       <div class="container">
         <div class="row pt-7 mt-7">
-          <div class="col-12 pt-7 mt-7">
+          <div class="col-12 py-7 my-7">
             <div class="">
               <nuxt-link exact :to="'/'">
                 Home
@@ -157,6 +157,8 @@ a.mobile-dropdown-parent:hover {
   transform: translate3d(-100%, 0, 0);
   background-color: #1A1A1A;
   transition: all .5s;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 .nav-mobile.active {
   transform: translate3d(0, 0, 0);
