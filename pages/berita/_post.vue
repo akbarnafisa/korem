@@ -1,10 +1,10 @@
 <template>
   <div class="container mw-4 section">
-    <h4 class="text-title h3-sm h2-md mt-5">{{article.judul}}</h4>
-    <p class="pt-1 text-grey text-pre-wrap">{{article.date}}</p>
-    <div class="py-4">
+    <h4 class="text-title h3-sm h2-md mt-5 text-center">{{article.judul}}</h4>
+    <p class="pt-1 text-grey text-pre-wrap text-center">{{article.date}}</p>
+    <div class="text-center py-4">
       <img
-        class="w-100"
+        class="article-image"
         :src="article.gambar"
       />
     </div>

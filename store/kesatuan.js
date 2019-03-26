@@ -26,9 +26,9 @@ export const mutations = {
 };
 
 export const actions = {
-  FETCH_NEWS ({ commit }) {
+  FETCH_KESATUAN ({ commit }) {
     return new Promise((resolve, reject) => {
-      ContentService.get('berita', {
+      ContentService.get('kesatuan', {
         _sort: '-createdAt'
       })
         .then(res => {
@@ -58,7 +58,7 @@ export const actions = {
               date,
               desc: strip,
             }
-          })
+					})
           commit('SET_KEY_LIST', kv)
           commit('SET_LISTS', data)
           resolve(data)
@@ -72,7 +72,7 @@ export const actions = {
 };
 
 export const getters = {
-  GET_NEWS (state) {
+  GET_KESATUAN (state) {
     return (link) => {
       const key = state.keyList[link]
       return state.list[key]
