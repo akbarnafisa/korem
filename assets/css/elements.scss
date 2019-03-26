@@ -27,6 +27,7 @@ button[disabled] {
 
 .article-image {
   max-height: 600px;
+  max-width: 100%;
   width: auto;
 }
 
@@ -148,7 +149,6 @@ input[type='email'],
 input[type='number'],
 select,
 textarea {
-  webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 	padding: 10px 12px;

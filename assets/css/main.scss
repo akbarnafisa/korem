@@ -154,18 +154,18 @@ body {
 }
 
 .section-header {
-  padding-top: 80px;
-  padding-bottom: 48px;
+  padding-top: 128px;
+  padding-bottom: 80px;
 
-  @include media(sm) {
-    padding-top: 128px;
-    padding-bottom: 80px;
-  }
+  // @include media(sm) {
+  //   padding-top: 128px;
+  //   padding-bottom: 80px;
+  // }
 
-  @include media(md) {
-    padding-top: 144px;
-    padding-bottom: 96px;
-  }
+  // @include media(md) {
+  //   padding-top: 144px;
+  //   padding-bottom: 96px;
+  // }
 }
 
 .section-white {

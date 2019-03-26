@@ -3,7 +3,7 @@
     <div
       v-for="(data, index) in images"
       :key="index"
-      class=" col-6 col-md-4 mb-5"
+      class="col-12 col-md-4 mb-5"
     >
       <div
         class="image"
@@ -44,8 +44,12 @@ export default {
 .gallery {
   .image {
     background-size: cover;
-    height: 30vw;
-    max-height: 275px;
+    height: 200px;
+
+    @media (min-width:$tablet) {
+      height: 30vw;
+      max-height: 275px;
+    }
   }
 }
 </style>

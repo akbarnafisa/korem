@@ -15,7 +15,7 @@
 								:style="`backgroundImage: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.6)), url('${data.gambar}')`"
 								class="card__image"
 							>
-								<div>
+								<div class="col-12">
 									<h3 class="card__title fw-700">{{ data.judul }}</h3>
 								</div>
 							</div>
