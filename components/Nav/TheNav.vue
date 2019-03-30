@@ -16,7 +16,7 @@
             Profil
             <div class="dropdown">
               <nuxt-link
-                v-for="data in nav"
+                v-for="data in profilNav"
                 :key="data.link"
                 :to="`/profil/${data.link}`"
               >
@@ -31,9 +31,20 @@
         <nuxt-link :to="'/galeri'">
           Galeri
         </nuxt-link>
-        <nuxt-link :to="'/kesatuan'">
-          Kesatuan
-        </nuxt-link>
+        <no-ssr>
+          <div class="nav-items">
+            Kesatuan
+            <div class="dropdown">
+              <nuxt-link
+                v-for="data in profilKesatuan"
+                :key="data.link"
+                :to="`/kesatuan/${data.link}`"
+              >
+                {{data.name}}
+              </nuxt-link>
+            </div>
+          </div>
+        </no-ssr>
         <nuxt-link :to="'/masuk-tni'">
           Masuk TNI
         </nuxt-link>
@@ -45,8 +56,11 @@
 <script>
 export default {
   computed: {
-    nav () {
+    profilNav () {
       return this.$store.state.profil.nav || []
+    },
+    profilKesatuan () {
+      return this.$store.state.kesatuan.nav || []
     }
   }
 }
@@ -95,7 +109,7 @@ nav {
             @include media(md) {
               content: "";
             }
-            height: 4px;
+            height: 2px;
             width: 100%;
             background-color: $primary50;
             position: absolute;
@@ -125,7 +139,7 @@ nav {
       a {
         padding: 8px 16px;
         margin-left: 0;
-        min-width: 150px;
+        min-width: 200px;
       }
     }
   }

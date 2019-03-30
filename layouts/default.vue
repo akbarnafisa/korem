@@ -18,6 +18,9 @@ export default {
     if (this.$store.state.profil.list === null) {
       this.$store.dispatch("profil/FETCH_DATA");
     }
+    if (this.$store.state.kesatuan.list === null) {
+      this.$store.dispatch("kesatuan/FETCH_DATA");
+    }
   }
 }
 </script>
