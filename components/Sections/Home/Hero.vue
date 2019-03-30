@@ -1,6 +1,19 @@
 <template>
   <div class="hero">
+    <video
+      v-if="data.gambar.includes('video/mp4')"
+      autoplay
+      muted
+      loop
+      class="hero-image hero-video"
+    >
+      <source
+        :src="data.gambar"
+        type="video/mp4"
+      >
+    </video>
     <div
+      v-else
       class="hero-image"
       :style="`backgroundImage: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('${data.gambar}')`"
     />
@@ -39,14 +52,16 @@ export default {
   justify-content: center;
   align-items: center;
 
+  .hero-video {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+
   .hero-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
   }
 
   .hero-text-wrapper {
@@ -63,6 +78,7 @@ export default {
       font-size: 56px;
       color: white;
       font-weight: 700;
+      text-shadow: 2px 2px rgba(0, 0, 0, 0.5) !important;
     }
 
     .text-desc {
