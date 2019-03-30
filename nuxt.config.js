@@ -10,15 +10,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Korem 064 Maulana Yusuf',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://gateway.serph.network/ipfs/QmeBZawg2FphST5wPc6sUxgxmzvvS8cqVSvGwoVjH8Hv5J' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://gateway.serph.network/ipfs/QmdGL3uVQZ3RmenLkm3S9JdEyHsj6bWqFHh1PPwcamJiu4' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' }
     ]
   },
 

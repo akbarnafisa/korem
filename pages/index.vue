@@ -19,6 +19,7 @@
   </div>
 </template>
 
+
 <script>
 import Hero from '@/components/Sections/Home/Hero'
 import NewsList from '@/components/Sections/News/NewsList'

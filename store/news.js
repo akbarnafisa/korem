@@ -28,7 +28,9 @@ export const mutations = {
 export const actions = {
   FETCH_NEWS ({ commit }) {
     return new Promise((resolve, reject) => {
-      ContentService.get('berita')
+      ContentService.get('berita', {
+        _sort: '-createdAt'
+      })
         .then(res => {
           let kv = {}
           const data = res.data.data.map((v, index) => {
@@ -41,7 +43,6 @@ export const actions = {
             const strip = striptags(v.kontent.slice(0, 200))
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const date = new Date(v.createdAt).toLocaleDateString('id-ID', options)
-            console.log(date)
             const link = v.judul.toLowerCase()
               .replace(/[^\w ]+/g, '')
               .replace(/ +/g, '-');

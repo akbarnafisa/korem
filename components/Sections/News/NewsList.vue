@@ -1,32 +1,55 @@
 <template>
   <div class="row">
-    <nuxt-link
-      aria-label="go"
-      v-for="(article, index) in articles"
-      :key="index"
-      class="card__item col-md-6 col-lg-4 my-5 my-md-7"
-      :to="`/berita/${article.link}`"
-    >
-      <div class="card__image-wrapper">
-        <div
-          :style="`backgroundImage: url('${article.gambar}')`"
-          class="card__image"
-        />
+    <div class="col-12 col-md-6">
+      <nuxt-link
+        class="card__item"
+        :to="`/berita/${latestArticle.link}`"
+      >
+        <div class="card__image-wrapper">
+          <div
+            :style="`backgroundImage: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.6)), url('${latestArticle.gambar}')`"
+            class="card__image--main"
+          >
+            <div>
+              <h5 class="card__date fw-600">{{latestArticle.date}}</h5>
+              <p class="card__title--main fw-700">{{ latestArticle.judul }}</p>
+              <p class="card__desc">{{latestArticle.desc.slice(0,100)}}...</p>
+            </div>
+          </div>
+        </div>
+      </nuxt-link>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="row">
+        <nuxt-link
+          aria-label="go"
+          v-for="(article, index) in otherArticles"
+          :key="index"
+          class="card__item col-12 col-md-6"
+          :to="`/berita/${article.link}`"
+        >
+          <div class="card__image-wrapper">
+            <div
+              :style="`backgroundImage: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.6)), url('${article.gambar}')`"
+              class="card__image"
+            >
+              <div>
+                <h6 class="card__date fw-600">{{article.date}}</h6>
+                <h5 class="card__title fw-700">{{ article.judul }}</h5>
+              </div>
+            </div>
+            <!-- <p class="card__desc">{{article.desc.slice(0,100)}}...</p> -->
+          </div>
+        </nuxt-link>
       </div>
-      <p class="card__title mt-4 fw-500">{{ article.judul }}</p>
-      <h6 class="card__date fw-700">{{article.date}}</h6>
-      <p class="card__desc">{{article.desc.slice(0,100)}}...</p>
-      <!-- <nuxt-link :to="article.link" class="mt-6">
-        <BaseButton text="View More" type="small"/>
-      </nuxt-link>-->
-    </nuxt-link>
+    </div>
     <div
       v-if="articlesPage"
       class="flex-center w-100 mt-5"
     >
       <nuxt-link
         class="btn btn--medium primary"
-        to="/artikel"
+        to="/berita"
       >Seluruh Berita</nuxt-link>
     </div>
   </div>
@@ -41,6 +64,12 @@ export default {
   },
 
   computed: {
+    latestArticle() {
+      return this.articles[0]
+    },
+    otherArticles() {
+      return this.articles.slice(1)
+    },
     articlesPage () {
       const routeName = this.$route.name
       return routeName.includes("artikel-id") || routeName.includes('index');
@@ -51,28 +80,55 @@ export default {
 
 <style lang="scss"scoped>
 .card__item {
-  &:hover .card__image {
-    transform: scale(1.05);
-  }
-  .card__image-wrapper {
-    overflow: hidden;
-    .card__image {
-      height: 260px;
-      width: 100%;
-      background-size: cover;
-      background-position: center center;
-      transition: transform 0.3s ease;
-    }
-  }
-  .card__title {
-    color: $primary60;
-    font-size: 18px;
-    margin-bottom: 8px;
-    font-weight: 700;
-    line-height: 1.35;
-    @include media(sm) {
-      font-size: 20px;
-    }
-  }
+  display: block;
+  padding-top: 20px;
+  transition: all .5s;
+}
+.card__image-wrapper {
+  overflow: hidden;
+}
+.card__image {
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  height: 260px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.3s ease;
+}
+.card__image--main {
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  height: 540px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.3s ease;
+}
+.card__title {
+  color: #f9f9ff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .15px;
+  overflow: hidden;
+  max-height: 40px;
+}
+.card__title--main {
+  color: #f9f9ff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .15px;
+  overflow: hidden;
+  max-height: 65px;
+}
+.card__date {
+  color: #f9f9f9;
+}
+.card__desc {
+  color:#f9f9f9;
 }
 </style>

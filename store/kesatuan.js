@@ -9,7 +9,6 @@ import striptags from 'striptags'
 export const state = () => ({
   list: null,
   keyList: {},
-  nav: null,
   page: null,
 
 });
@@ -30,31 +29,26 @@ export const mutations = {
 };
 
 export const actions = {
-  FETCH_DATA ({ commit }) {
+  FETCH_KESATUAN ({ commit }) {
     return new Promise((resolve, reject) => {
-      ContentService.get('kesatuan')
+      ContentService.get('kesatuan', {
+        _sort: '-createdAt'
+      })
         .then(res => {
           let kv = {}
-          const nav = []
           const data = res.data.data.map((v, index) => {
             const images = {
               gambar: v.gambar,
             };
-
             const nextData = Array(3).fill(1)
               .map((v, i) => (i + index + 1) % res.data.data.length);
             const image = extractImage(images, 'single');
             const strip = striptags(v.kontent.slice(0, 200))
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const date = new Date(v.createdAt).toLocaleDateString('id-ID', options)
-            console.log(date)
             const link = v.judul.toLowerCase()
-              .replace(/[^\w ]+/g, ' ')
+              .replace(/[^\w ]+/g, '')
               .replace(/ +/g, '-');
-            nav.push({
-              name: v.judul,
-              link
-            })
             kv = {
               ...kv,
               [link]: index
@@ -70,7 +64,6 @@ export const actions = {
           })
           commit('SET_KEY_LIST', kv)
           commit('SET_LISTS', data)
-          commit('SET_NAV', nav)
           resolve(data)
         })
         .catch((err) => {
@@ -82,7 +75,7 @@ export const actions = {
 };
 
 export const getters = {
-  GET_DATA (state) {
+  GET_KESATUAN (state) {
     return (link) => {
       const key = state.keyList[link]
       return state.list[key]

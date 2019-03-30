@@ -9,9 +9,11 @@
       <div class="text-desc">
         {{data.deskripsi}}
       </div>
-      <button class="btn primary btn--medium large">
-        Tentang Kami
-      </button>
+      <nuxt-link to="/profil/sejarah">
+        <button class="btn primary btn--medium large">
+          Tentang Kami
+        </button>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -64,6 +66,7 @@ export default {
     }
 
     .text-desc {
+      font-size: 24px;
       margin-bottom: 32px;
     }
   }
