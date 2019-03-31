@@ -22,6 +22,9 @@ export const mutations = {
   },
   SET_KEY_LIST (state, payload) {
     state.keyList = payload;
+  },
+  SET_NAV (state, payload) {
+    state.nav = payload;
   }
 };
 
@@ -58,7 +61,7 @@ export const actions = {
               date,
               desc: strip,
             }
-					})
+          })
           commit('SET_KEY_LIST', kv)
           commit('SET_LISTS', data)
           resolve(data)

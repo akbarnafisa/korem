@@ -1,20 +1,33 @@
 <template>
   <div>
-    <div class="nav-mobile" :class="{active: mobileNavActive}">
+    <div
+      class="nav-mobile"
+      :class="{active: mobileNavActive}"
+    >
       <div class="container">
         <div class="row pt-7 mt-7">
-          <div class="col-12 py-7 my-7">
+          <div class="col-12 py-7">
             <div class="">
-              <nuxt-link exact :to="'/'">
+              <nuxt-link
+                exact
+                :to="'/'"
+              >
                 Home
               </nuxt-link>
               <no-ssr>
-                <a id="profile" @click="toggleProfileDropdown" class="mobile-dropdown-parent">
+                <a
+                  id="profile"
+                  @click="toggleProfileDropdown"
+                  class="mobile-dropdown-parent"
+                >
                   Profil
-                  <div class="pl-2" v-if="mobileNavProfileDropdown">
+                  <div
+                    class="pl-2"
+                    v-if="mobileNavProfileDropdown"
+                  >
                     <nuxt-link
                       class="mobile-dropdown"
-                      v-for="data in nav"
+                      v-for="data in profilNav"
                       :key="data.link"
                       :to="`/profil/${data.link}`"
                     >
@@ -40,7 +53,10 @@
               </nuxt-link>
             </div>
             <div class="">
-              <a href="http://rekrutmen-tni.mil.id" target="_blank">
+              <a
+                href="http://rekrutmen-tni.mil.id"
+                target="_blank"
+              >
                 Masuk TNI
               </a>
             </div>
@@ -56,25 +72,49 @@
             class="nav-left logo"
           >
             <img
-              src="https://gateway.serph.network/ipfs/QmdGL3uVQZ3RmenLkm3S9JdEyHsj6bWqFHh1PPwcamJiu4"
+              src="https://gateway.serph.network/ipfs/QmYdcHvc4CgYbinUC8zDBhCS3gaXoVpDxe2xx8XNTnEmUP"
               alt="logo"
             >
           </nuxt-link>
           <div class="nav-right">
-            <div class="d-flex d-md-none" @click="toggleMobileNav">
-              <svg style="fill:#f9f9f9" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>
+            <div
+              class="d-flex d-md-none"
+              @click="toggleMobileNav"
+            >
+              <svg
+                height="32px"
+                id="Layer_1"
+                style="enable-background:new 0 0 32 32;"
+                version="1.1"
+                viewBox="0 0 32 32"
+                width="32px"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
             </div>
             <div class="d-none d-md-flex">
-              <nuxt-link exact :to="'/'">
+              <nuxt-link
+                exact
+                :to="'/'"
+              >
                 Home
               </nuxt-link>
               <no-ssr>
-                <a id="profile" @click="toggleProfileDropdown" class="dropdown-parent">
+                <a
+                  id="profile"
+                  @click="toggleProfileDropdown"
+                  class="dropdown-parent"
+                >
                   Profil
-                  <div class="desktop-dropdown-content" v-if="mobileNavProfileDropdown">
+                  <div
+                    class="desktop-dropdown-content"
+                    v-if="mobileNavProfileDropdown"
+                  >
                     <nuxt-link
                       class="desktop-dropdown"
-                      v-for="data in nav"
+                      v-for="data in profilNav"
                       :key="data.link"
                       :to="`/profil/${data.link}`"
                     >
@@ -92,7 +132,10 @@
               <nuxt-link :to="'/kesatuan'">
                 Kesatuan
               </nuxt-link>
-              <a href="http://rekrutmen-tni.mil.id" target="_blank">
+              <a
+                href="http://rekrutmen-tni.mil.id"
+                target="_blank"
+              >
                 Masuk TNI
               </a>
             </div>
@@ -105,38 +148,41 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       mobileNavActive: false,
       mobileNavProfileDropdown: false,
       bodyEl: null
     }
   },
-  mounted() {
+  mounted () {
     const self = this
     this.bodyEl = document.querySelector('body')
     this.bodyEl.addEventListener('click', (e) => {
-      if(e.target.id !== 'profile') {
+      if (e.target.id !== 'profile') {
         self.mobileNavProfileDropdown = false
       }
     })
   },
-  watch:{
-    $route (to, from){
+  watch: {
+    $route (to, from) {
       this.mobileNavActive = false
     }
   },
   methods: {
-    toggleMobileNav() {
+    toggleMobileNav () {
       this.mobileNavActive = !this.mobileNavActive
     },
-    toggleProfileDropdown() {
+    toggleProfileDropdown () {
       this.mobileNavProfileDropdown = !this.mobileNavProfileDropdown
     }
   },
   computed: {
-    nav () {
+    profilNav () {
       return this.$store.state.profil.nav || []
+    },
+    profilKesatuan () {
+      return this.$store.state.kesatuan.nav || []
     }
   }
 }
@@ -155,14 +201,13 @@ a.mobile-dropdown-parent:hover {
   right: 0;
   bottom: 0;
   transform: translate3d(-100%, 0, 0);
-  background-color: #1A1A1A;
-  transition: all .5s;
-  overflow-y:scroll;
-  overflow-x:hidden;
+  background-color: #1a1a1a;
+  transition: all 0.5s;
 }
 .nav-mobile.active {
+  overflow: scroll;
   transform: translate3d(0, 0, 0);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .nav-mobile a {
   display: block;
@@ -177,7 +222,7 @@ a.mobile-dropdown {
 .desktop-dropdown {
   width: 120px;
   text-align: center;
-  position: relative;  
+  position: relative;
 }
 .desktop-dropdown-content {
   position: absolute;
@@ -187,11 +232,11 @@ a.mobile-dropdown {
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.desktop-dropdown-content a{
+.desktop-dropdown-content a {
   display: block !important;
   margin: 0 !important;
   padding: 8px !important;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 .dropdown {
   display: none;
@@ -224,7 +269,7 @@ nav {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 
   .nav-desktop {
     display: flex;
@@ -252,6 +297,10 @@ nav {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+
+  svg {
+    fill: white;
+  }
 }
 
 a,
@@ -264,7 +313,7 @@ a,
   position: relative;
 
   &.nuxt-link-active,
-  &:hover, {
+  &:hover {
     color: $primary50;
   }
 }

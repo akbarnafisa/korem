@@ -17,7 +17,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: `Website resmi Korem 064 Maulana Yusuf Serang Banten` }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://gateway.serph.network/ipfs/QmdGL3uVQZ3RmenLkm3S9JdEyHsj6bWqFHh1PPwcamJiu4' },
+      { rel: 'icon', type: 'image/x-icon', href: 'https://gateway.serph.network/ipfs/QmYdcHvc4CgYbinUC8zDBhCS3gaXoVpDxe2xx8XNTnEmUP' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' }
     ]
   },

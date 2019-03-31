@@ -3,7 +3,21 @@
     <h4 class="text-center text-title h3-sm h2-md">{{article.judul}}</h4>
     <p class="text-center pt-1 text-grey text-pre-wrap">{{article.date}}</p>
     <div class="py-4 text-center">
+      <video
+        v-if="article.gambar.includes('video/mp4')"
+        autoplay
+        muted
+        loop
+        controls
+        class="article-video"
+      >
+        <source
+          :src="article.gambar"
+          type="video/mp4"
+        >
+      </video>
       <img
+        v-else
         class="article-image"
         :src="article.gambar"
       />
@@ -43,6 +57,10 @@ export default {
 }
 .article-content li {
   margin-top: 0.25rem;
+}
+
+.article-video {
+  width: 100%;
 }
 
 .text-title {
