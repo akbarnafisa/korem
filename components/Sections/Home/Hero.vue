@@ -12,6 +12,14 @@
         :src="data.gambar"
         type="video/mp4"
       >
+      <source
+        :src="toWebm"
+        type="video/webm"
+      >
+      <source
+        :src="toOgv"
+        type="video/ogv"
+      >
     </video>
     <div
       v-else
@@ -39,6 +47,22 @@ export default {
       type: Object,
       required: true,
     },
+  },
+
+  computed: {
+    toWebm() {
+      const splittedUrl = this.data.gambar.split('/')
+      const formatIdx = splittedUrl.findIndex((val) => val === 'mp4')
+      splittedUrl[formatIdx] = 'webm'
+      return splittedUrl.join('/')
+    },
+
+    toOgv() {
+      const splittedUrl = this.data.gambar.split('/')
+      const formatIdx = splittedUrl.findIndex((val) => val === 'mp4')
+      splittedUrl[formatIdx] = 'ogv'
+      return splittedUrl.join('/')
+    }
   },
 
 }
