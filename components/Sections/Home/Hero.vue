@@ -5,6 +5,7 @@
       autoplay
       muted
       loop
+      playsinline
       class="hero-image hero-video"
     >
       <source
