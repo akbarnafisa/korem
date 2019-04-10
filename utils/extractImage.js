@@ -5,7 +5,7 @@ const extractImage = (images, type) => {
     if (data.length === 1 || type === 'single') {
       result = {
         ...result,
-        [key]: data[0].url
+        [key]: data[0] ? data[0].url : null
       }
     } else {
       const dataArray = data.map((image) => {

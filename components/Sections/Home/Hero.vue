@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <video
-      v-if="data.gambar.includes('video/mp4')"
+      v-if="data.gambar && data.gambar.includes('video/mp4')"
       autoplay
       muted
       loop

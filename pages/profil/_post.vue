@@ -4,7 +4,7 @@
     <p class="text-center pt-1 text-grey text-pre-wrap">{{article.date}}</p>
     <div class="py-4 text-center">
       <video
-        v-if="article.gambar.includes('video/mp4')"
+        v-if="article.gambar && article.gambar.includes('video/mp4')"
         autoplay
         muted
         loop
