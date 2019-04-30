@@ -68,7 +68,7 @@ export default {
       return this.articles[0]
     },
     otherArticles() {
-      return this.articles.slice(1)
+      return this.articles.slice(1, 5)
     },
     articlesPage () {
       const routeName = this.$route.name

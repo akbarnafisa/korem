@@ -20,7 +20,7 @@
               style="display:block;text-align:center;width:100%"
               to="/"
             >
-              <img class="logo" src="https://gateway.serph.network/ipfs/QmYdcHvc4CgYbinUC8zDBhCS3gaXoVpDxe2xx8XNTnEmUP" />
+              <img class="logo" src="https://gateway.serph.network/ipfs/QmUvLFV4cG3HNsdqADSbQVrmDFNv52DNQDS4vEyjotgm8r" />
             </nuxt-link>
           </div>
           <div class="col-md-2 col-6 mb-6 text-center text-md-left">
