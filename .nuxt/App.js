@@ -8,7 +8,7 @@ import _6f6c098b from '../layouts/default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"title":"Korem 064 Maulana Yusuf","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Website resmi Korem 064 Maulana Yusuf Serang Banten"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"https:\u002F\u002Fgateway.serph.network\u002Fipfs\u002FQmYdcHvc4CgYbinUC8zDBhCS3gaXoVpDxe2xx8XNTnEmUP"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Source+Sans+Pro:400,600,700"}],"style":[],"script":[]},
+  head: {"title":"Korem 064 Maulana Yusuf","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Website resmi Korem 064 Maulana Yusuf Serang Banten"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Flogo.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Source+Sans+Pro:400,600,700"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

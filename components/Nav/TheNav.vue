@@ -72,7 +72,7 @@
             class="nav-left logo"
           >
             <img
-              src="https://gateway.serph.network/ipfs/QmYdcHvc4CgYbinUC8zDBhCS3gaXoVpDxe2xx8XNTnEmUP"
+              src="/logo.png"
               alt="logo"
             >
           </nuxt-link>
